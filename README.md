@@ -22,35 +22,83 @@ Testing the webserver.
 
 # PROGRAM:
 ```
-from http.server import HTTPServer,BaseHTTPRequestHandler
-content ='''
-<html>
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
+Content = """
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>laptop</title></head>
+  <meta charset="UTF-8">
+  <title>Protocol Suite - TCP/IP Model</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+    .layer {
+      border: 1px solid #ccc;
+      background-color: #fff;
+      margin: 15px auto;
+      padding: 20px;
+      width: 60%;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+    .layer h2 {
+      color: #0066cc;
+    }
+    .protocols {
+      margin-top: 10px;
+      color: #333;
+    }
+  </style>
+</head>
 <body>
-  <p>Edition:Windows 13 Pro</p>
-  <p>Version:24H2</p>
-  <p>Processor:Intel i7-12700H</p>
-  <p>Installed RAM: 24 GB</p>
-  <p>System type: 128-bit Operating System</p>
+  <h1>TCP/IP Protocol Suite</h1>
+
+  <div class="layer">
+    <h2>Application Layer</h2>
+    <div class="protocols">HTTP, FTP, DNS, SMTP, POP3, SNMP</div>
+  </div>
+
+  <div class="layer">
+    <h2>Transport Layer</h2>
+    <div class="protocols">TCP, UDP</div>
+  </div>
+
+  <div class="layer">
+    <h2>Internet Layer</h2>
+    <div class="protocols">IP, ICMP, ARP</div>
+  </div>
+
+  <div class="layer">
+    <h2>Network Access Layer</h2>
+    <div class="protocols">Ethernet, Wi-Fi, PPP</div>
+  </div>
+
 </body>
 </html>
-'''
+"""
+
 class Myserver(BaseHTTPRequestHandler):
     def do_GET(self):
-        print("Get request received...")
+        print("GET request received...")
         self.send_response(200)
-        self.send_header("content_type", "text/html")
+        self.send_header("Content-Type", "text/html")  # ✅ Corrected this line
         self.end_headers()
-        self.wfile.write(content.encode())
+        self.wfile.write(Content.encode())
+
 print("This is my webserver")
-server_address =('',8000)
-httpd = HTTPServer(server_address,Myserver)
+server_address = ('', 8000)
+httpd = HTTPServer(server_address, Myserver)
 httpd.serve_forever()
 ```
 # OUTPUT:
-![alt text](<Screenshot 2025-09-19 142552.png>)
-![alt text](<Screenshot 2025-09-19 142710.png>)
+![alt text](<../Screenshot 2025-09-22 115844.png>)
+![alt text](../console.png)
 
 
 # RESULT:
