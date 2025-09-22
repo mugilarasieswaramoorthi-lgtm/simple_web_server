@@ -98,6 +98,8 @@ httpd.serve_forever()
 ```
 # OUTPUT:
 <img width="992" height="334" alt="image" src="https://github.com/user-attachments/assets/90fa0eb3-c1f1-4266-ac42-ca99d0f67c13" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6010ab53-679f-4e58-9b62-eda67701c7b3" />
+
 
 
 
