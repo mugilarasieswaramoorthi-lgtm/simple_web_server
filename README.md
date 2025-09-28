@@ -87,7 +87,7 @@ class Myserver(BaseHTTPRequestHandler):
     def do_GET(self):
         print("GET request received...")
         self.send_response(200)
-        self.send_header("Content-Type", "text/html")  # ✅ Corrected this line
+        self.send_header("Content-Type", "text/html") 
         self.end_headers()
         self.wfile.write(Content.encode())
 
